@@ -22,7 +22,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        text-align: left;
       }
 
       .container {
@@ -38,12 +38,11 @@
         letter-spacing: -0.025em;
       }
 
-      p {
-        font-size: 1.25rem;
-        color: #a1a1aa;
-        max-width: 520px;
-        margin: 0 auto 2rem;
-        line-height: 1.5;
+      a {
+        color: #a0a0a0;
+      }
+      a:hover {
+        color: #ddd;
       }
 
       .badge {
@@ -60,8 +59,13 @@
   </head>
   <body>
     <div class="container">
-      <div class="badge">UNDER DEV. • SELF-HOSTED</div>
+      <div class="badge">UNDER DEVELOPMENT • SELF-HOSTED</div>
       <h1>Hello, World!</h1>
+      <p>
+        <a href="https://ds.sedk.dev" target="_self"
+          >Design System documentation</a
+        >
+      </p>
     </div>
   </body>
 </html>
