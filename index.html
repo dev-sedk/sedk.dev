@@ -3,26 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - SEDK.dev</title>
+
+    <!-- Description + Rich link previews -->
     <meta
       name="description"
-      content="A minimalist, self-hosted portfolio site & blog." />
-    <title>Home • SEDK.dev</title>
+      content="Documenting rigorous self-study and building in public." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Home - SEDK.dev" />
+    <meta
+      property="og:description"
+      content="Documenting rigorous self-study and building in public." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sedk.dev/" />
+    <meta property="og:site_name" content="SEDK.dev" />
+    <meta property="og:image" content="https://sedk.dev/og.png" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Home - SEDK.dev" />
+    <meta
+      name="twitter:description"
+      content="Documenting rigorous self-study and building in public." />
+    <meta name="twitter:image" content="https://sedk.dev/og.png" />
+
     <style>
       :root {
+        /* Colors */
         --bg: #000;
-        --fg: #f5f5f5;
+        --fg: #fff;
         --accent: #a5b4fc;
-        --body: #a1a1aa;
+        --fg-body: #a1a1aa;
         --focus-ring: #a5b4fc;
 
-        --fs-display: clamp(2.75rem, 11vw, 5.5rem);
-        --fs-meta: clamp(0.875rem, 2.2vw, 1rem);
-        --fs-badge: clamp(0.75rem, 1.8vw, 0.875rem);
+        /* Fluid Font-Sizes */
+        --fs-h1: clamp(3rem, 11vw, 5rem);
+        --fs-md: clamp(0.875rem, 2.2vw, 1rem);
+        --fs-sm: clamp(0.75rem, 1.8vw, 0.875rem);
+        --fs-body: var(--fs-md);
 
+        /* Fluid Spacing */
         --space-sm: clamp(0.75rem, 1.8vw, 1rem);
         --space-md: clamp(1rem, 2.5vw, 1.5rem);
         --space-lg: clamp(1.5rem, 4vw, 2.5rem);
 
+        /* Misc */
         --radius-pill: 9999px;
         --focus-outline: 2px solid var(--focus-ring);
       }
@@ -47,37 +73,25 @@
         background: var(--bg);
         color: var(--fg);
         min-height: 100dvh;
-        padding: var(--space-lg);
         line-height: 1.6;
+
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow-x: hidden;
       }
 
-      .container {
-        width: fit-content;
-        max-width: 820px;
-      }
-
-      .header-group {
+      /* Header */
+      header {
+        position: absolute;
+        top: var(--space-sm);
+        left: var(--space-sm);
+        right: var(--space-sm);
         display: flex;
-        flex-direction: column;
-        gap: var(--space-lg);
-        width: fit-content;
-      }
-
-      h1 {
-        font-size: var(--fs-display);
-        font-weight: 600;
-        line-height: 0.9;
-        letter-spacing: -0.045em;
-        margin-left: -0.05em;
-        /* margin-right: -0.03em; */
-      }
-
-      .meta {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        gap: var(--space-md);
-        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--space-sm);
       }
 
       .badge {
@@ -85,22 +99,20 @@
         align-items: center;
         background: color-mix(in srgb, var(--accent) 8%, transparent);
         color: var(--accent);
-        font-size: var(--fs-badge);
-        font-weight: 600;
-        letter-spacing: 0.025em;
+        font-size: var(--fs-sm);
+        letter-spacing: 0.1em;
         padding: 0.5rem 1rem;
         border-radius: var(--radius-pill);
-        border: 1px solid color-mix(in srgb, var(--accent) 12%, transparent);
+        border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
         white-space: nowrap;
       }
 
       nav a {
-        color: var(--body);
+        color: var(--fg-body);
         text-decoration: underline;
         text-decoration-thickness: 1px;
-        font-size: var(--fs-meta);
-        outline: none;
-        border-radius: 3px;
+        font-size: var(--fs-body);
+        white-space: nowrap;
       }
 
       nav a:hover {
@@ -109,53 +121,70 @@
 
       nav a:focus-visible {
         outline: var(--focus-outline);
-        outline-offset: 5px;
+        outline-offset: 4px;
       }
 
       /* Mobile */
-      @media (max-width: 480px) {
-        body {
-          padding-left: var(--space-md);
-          padding-right: var(--space-md);
-          display: grid;
-          place-items: center;
-        }
-
-        .container {
-          width: fit-content;
-          max-width: 100%;
-        }
-
-        .header-group {
-          gap: var(--space-md);
-          align-items: flex-start;
-        }
-
-        h1 {
-          margin-left: -0.03em;
-        }
-
-        .meta {
+      @media (max-width: 650px) {
+        header {
           flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-start;
-          gap: var(--space-sm);
-          width: fit-content;
+          align-items: center;
+          text-align: center;
+          left: 0;
+          right: 0;
         }
+      }
+
+      /* Main content */
+      .container {
+        width: 100%;
+        max-width: 820px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: var(--space-md);
+        padding-top: var(--space-lg);
+      }
+
+      h1 {
+        font-size: var(--fs-h1);
+        font-weight: 600;
+        line-height: 0.95;
+        letter-spacing: -0.045em;
+        margin-left: -0.05em;
+      }
+
+      .byline {
+        color: var(--fg);
+        font-size: var(--fs-md);
+        text-align: center;
+      }
+
+      .intro {
+        color: var(--fg-body);
+        font-size: var(--fs-md);
+        margin-top: 1.5rem;
+        text-align: center;
+        width: 100%;
       }
     </style>
   </head>
   <body>
+    <header>
+      <span class="badge">UNDER DEVELOPMENT • SELF-HOSTED</span>
+      <nav aria-label="Quick links">
+        <a href="https://ds.sedk.dev">Design system</a>
+      </nav>
+    </header>
+
     <main class="container">
-      <header class="header-group">
-        <h1>Homepage</h1>
-        <div class="meta">
-          <span class="badge">UNDER DEVELOPMENT • SELF-HOSTED</span>
-          <nav aria-label="Quick links">
-            <a href="https://ds.sedk.dev">Design system</a>
-          </nav>
-        </div>
-      </header>
+      <h1>SEDK</h1>
+      <p class="byline">
+        [&nbsp;&nbsp;Mathematics • Physics • Systems&nbsp;&nbsp;]
+      </p>
+      <p class="intro">
+        Documenting rigorous self-study and building in public.
+      </p>
     </main>
   </body>
 </html>
