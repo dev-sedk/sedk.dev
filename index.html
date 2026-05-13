@@ -7,16 +7,26 @@
     <style>
       :root {
         --bg: #000;
-        --fg: #f5f5f5;
+        --fg: #fff;
         --accent: #a5b4fc;
       }
 
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: "Inter", system_ui, sans-serif;
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
         background: var(--bg);
         color: var(--fg);
         margin: 0;
-        height: 100vh;
+        height: 100dvh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -26,31 +36,38 @@
       .container {
         max-width: 720px;
         padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start; /* ← this prevents children from stretching full width */
       }
 
       h1 {
-        font-size: clamp(3rem, 8vw, 5.5rem);
+        font-size: clamp(2.5rem, 8vw, 5rem);
         font-weight: 600;
-        margin: 0 0 1rem;
+        margin: 0;
+        text-indent: -0.1em;
         letter-spacing: -0.025em;
       }
 
       a {
         color: #a0a0a0;
+        /* text-decoration kept */
       }
+
       a:hover {
         color: #ddd;
       }
 
       .badge {
-        display: inline-block;
-        background: #18181b;
-        color: #a5b4fc;
+        width: fit-content;
+        background: rgb(from var(--accent) r g b / 0.1);
+        color: var(--accent);
         font-size: 0.875rem;
-        padding: 0.25rem 0.75rem;
+        padding: 0.5rem 1rem;
         border-radius: 9999px;
         font-weight: 500;
-        margin-bottom: 1.5rem;
+        border: 1px solid rgb(from var(--accent) r g b / 0.15);
       }
     </style>
   </head>
@@ -58,11 +75,7 @@
     <div class="container">
       <div class="badge">UNDER DEVELOPMENT • SELF-HOSTED</div>
       <h1>Hello, World!</h1>
-      <p>
-        <a href="https://ds.sedk.dev" target="_self"
-          >Design System documentation</a
-        >
-      </p>
+      <a href="https://ds.sedk.dev">Design System documentation</a>
     </div>
   </body>
 </html>
