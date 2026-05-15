@@ -84,7 +84,7 @@
         z-index: -1;
         background: url("bg.avif") center/100% 100% no-repeat;
         background-color: #000;
-        filter: brightness(0) blur(15px);
+        filter: brightness(0);
         transform: scale(1.05); /* Slight zoom for the "settling" effect */
         transition:
           filter 1.2s cubic-bezier(0.22, 1, 0.36, 1),
@@ -94,7 +94,7 @@
 
       /* State: Loaded - Reveal image */
       body.loaded::before {
-        filter: brightness(1) blur(0px);
+        filter: brightness(1);
         transform: scale(1);
       }
 
@@ -102,7 +102,7 @@
       @media (prefers-reduced-motion: reduce) {
         body::before {
           transition: none !important;
-          filter: brightness(1) blur(0px);
+          filter: brightness(1);
           transform: scale(1);
         }
       }
