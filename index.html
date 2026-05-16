@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - SEDK.dev</title>
+    <link rel="icon" href="./dev.jpg" />
 
     <meta
       name="description"
@@ -82,7 +83,7 @@
         position: fixed;
         inset: 0;
         z-index: -1;
-        background: url("bg.avif") center/100% 100% no-repeat;
+        background: url("bg.webp") center/100% 100% no-repeat;
         background-color: #000;
         filter: brightness(0);
         transform: scale(1.05); /* Slight zoom for the "settling" effect */
@@ -186,7 +187,7 @@
       @media (max-width: 650px) {
         /* Background Layer - Starts black and blurred */
         body::before {
-          background: url("bg.avif") center/auto 100% no-repeat;
+          background: url("bg.webp") center/auto 100% no-repeat;
         }
         header {
           flex-direction: column;
